@@ -17,18 +17,18 @@ jobs:
                 python-version: ${{ matrix.python-version }}
 
             - name: Display Python version
-                run: python -c "import sys; print(sys.version)"
+              run: python -c "import sys; print(sys.version)"
 
             - name: Install dependencies
-            run: |
+              run: |
                 python -m pip install --upgrade pip
                 pip install -r requirements.txt
 
             - name: Run tests with pytest and export report of testing
-            run: |
+              run: |
                 pytest --junitxml=report.xml
+              if: ${{ always() }}
 
             - name: Parse test results
-            run: python test_results.py
-
-            if: ${{ always() }}
+              run: python test_results.py
+              
