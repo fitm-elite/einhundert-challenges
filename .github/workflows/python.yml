@@ -31,4 +31,5 @@ jobs:
 
             - name: Parse test results
               run: python test_results.py
-              
+              if: ${{ always() }}
+
