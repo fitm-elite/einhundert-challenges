@@ -31,5 +31,5 @@ jobs:
             pytest --junitxml=report.xml
 
         - name: Parse test results
-        run: python parse_test_results.py
+        run: python test_results.py
       
